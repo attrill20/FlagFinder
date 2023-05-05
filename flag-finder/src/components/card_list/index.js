@@ -1,10 +1,17 @@
-import Card from "../card";
+import CountryCard from "../card";
+import { SimpleGrid } from "@chakra-ui/react";
 
 export default function CardList(props) {
     return (
-        <div>
-            <Card name={props.name} />
-            <Card name={props.name} />
-        </div>
+        <SimpleGrid spacing={10} columns={4}>
+            <CountryCard name={props.name} />
+            <CountryCard name={props.name} />
+            <CountryCard name={props.name} />
+            <CountryCard name={props.name} />
+            <CountryCard name={props.name} />
+            <CountryCard name={props.name} />
+            <CountryCard name={props.name} />
+            <CountryCard name={props.name} />
+        </SimpleGrid>
     );
 }
