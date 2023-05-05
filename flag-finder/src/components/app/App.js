@@ -1,13 +1,16 @@
 import "./App.css";
 import CardList from "../card_list";
 import React, { useEffect, useState } from "react";
-
-// 1. import `ChakraProvider` component
 import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
     const [data, setData] = useState("Hello");
-    const [clicked, setClicked] = useState(false);
+
+    const [countryName, setCountryName] = useState("");
+    const [flagName, setFlagName] = useState("");
+    const [popName, setPopName] = useState("");
+    const [capitalName, setCapitalName] = useState("");
+    const [regionName, setRegionName] = useState("");
 
     useEffect(() => {
         async function fetchData() {
@@ -15,27 +18,31 @@ function App() {
                 "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital"
             );
             const data = await response.json();
+
+            data.map(generateCard);
+
             console.log(data);
             console.log(data[202].capital)
-            // console.log(data[0].name.common);
-            // setData(data[0].name.common);
-            setData(data);
+            setData(data[202].capital);
         }
         fetchData();
     }, []);
 
-    function handleClick() {
-        setClicked(!clicked);
-    }
+function generateCard(i) {
+    setCountryName(data[i].name.common);
+    // setFlagName(data[i]); // to be fixed!
+    setPopName(data[i].population);
+    setCapitalName(data[i].capital);
+    setRegionName(data[i].region);
 
-    let name = "Germany";
+}
+
     return (
         <ChakraProvider>
         <div className="App">
             <header className="App-header">
-                <p>Where in the world am i?</p>
+                <p>Where in the world am I?</p>
                 <CardList data={data} />
-                <button onClick={() => handleClick()}>Click for data</button>
             </header>
         </div>
         </ChakraProvider>
@@ -52,6 +59,11 @@ export default App;
   - region 
   - capital 
 - import Component from ChakraUI
+
+- create 5 states
+- map over the array of all countries
+- render a card for each one containing all 5 bits of data
+
   - card component
   - search bar 
   - filter bar 

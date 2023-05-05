@@ -24,7 +24,7 @@ export default function CountryCard(props) {
      <Stack mt='6' spacing='3'>
        <Heading size='md'>Living room Sofa</Heading>
        <Text>
-         {props.url};
+         {props.data};
        </Text>
        <Text color='blue.600' fontSize='2xl'>
          $450
