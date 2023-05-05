@@ -19,6 +19,7 @@ function App() {
             console.log(data[202].capital)
             // console.log(data[0].name.common);
             // setData(data[0].name.common);
+            setData(data);
         }
         fetchData();
     }, []);
@@ -33,7 +34,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <p>Where in the world am i?</p>
-                <CardList name={data} />
+                <CardList data={data} />
                 <button onClick={() => handleClick()}>Click for data</button>
             </header>
         </div>
