@@ -1,3 +1,3 @@
-export default function Card() {
-    return <h1>Card Displays Here</h1>;
+export default function Card(props) {
+    return <h1>{props.name}</h1>;
 }
