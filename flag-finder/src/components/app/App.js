@@ -1,7 +1,7 @@
 import "./App.css";
 import CardList from "../card_list";
 import React, { useEffect, useState } from "react";
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
     const [data, setData] = useState(null);
@@ -12,21 +12,20 @@ function App() {
                 "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital"
             );
             const data = await response.json();
+            console.log(data);
             setData(data);
         }
         fetchData();
     }, []);
 
-
-
     return (
         <ChakraProvider>
-        <div className="App">
-            <header className="App-header">
-                <p>Where in the world am I?</p>
-                {data && <CardList data={data} />}
-            </header>
-        </div>
+            <div className="App">
+                <header className="App-header">
+                    <p>Where in the world am I?</p>
+                    {data && <CardList data={data} />}
+                </header>
+            </div>
         </ChakraProvider>
     );
 }

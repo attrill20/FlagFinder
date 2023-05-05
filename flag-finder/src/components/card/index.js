@@ -9,40 +9,27 @@ import {
     Image,
     Stack,
     Text,
-  } from "@chakra-ui/react";
-
-
+} from "@chakra-ui/react";
 
 export default function CountryCard(props) {
-   // add key function here
-   return ( <Card maxW='sm'> 
-   <CardBody>
-     <Image
-       //src= {props.url}
-       alt='Green double couch with wooden legs'
-       borderRadius='lg'
-     />
-     <Stack mt='6' spacing='3'>
-       <Heading size='md'>Living room Sofa</Heading>
-       <Text>
-         {props.data.capital};
-       </Text>
-       <Text color='blue.600' fontSize='2xl'>
-         $450
-       </Text>
-     </Stack>
-   </CardBody>
-   <Divider />
-   <CardFooter>
-     <ButtonGroup spacing='2'>
-       <Button variant='solid' colorScheme='blue'>
-         Buy now
-       </Button>
-       <Button variant='ghost' colorScheme='blue'>
-         Add to cart
-       </Button>
-     </ButtonGroup>
-   </CardFooter>
- </Card>
-   )
+    // add key function here
+    return (
+        <Card maxW="sm">
+            <CardBody bg="white">
+                <Image
+                    src={props.data.flags.png}
+                    alt="country flag"
+                    borderRadius="lg"
+                />
+                <Stack mt="6" spacing="3">
+                    <Heading size="md">{props.data.name.common}</Heading>
+                    <Text fontSize={15}>
+                        Population: {props.data.population}
+                    </Text>
+                    <Text fontSize={15}>Region: {props.data.region}</Text>
+                    <Text fontSize={15}>Capital: {props.data.capital}</Text>
+                </Stack>
+            </CardBody>
+        </Card>
+    );
 }
