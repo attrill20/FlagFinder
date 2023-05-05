@@ -1,5 +1,6 @@
 import "./App.css";
 import CardList from "../card_list";
+import SearchBar from "../search_bar";
 import React, { useEffect, useState } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 
@@ -23,6 +24,7 @@ function App() {
             <div className="App">
                 <header className="App-header">
                     <p>Where in the world am I?</p>
+                    <SearchBar />
                     {data && <CardList data={data} />}
                 </header>
             </div>
