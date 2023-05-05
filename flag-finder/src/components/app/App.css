@@ -1,5 +1,5 @@
 .App {
-    text-align: center;
+    text-align: left;
 }
 
 .App-logo {
@@ -21,12 +21,25 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: black;
 }
 
 .App-link {
     color: #61dafb;
 }
+
+.search {
+    align-items: left;
+}
+
+
+.header {
+    background-color: white;
+    text-align:left;
+    font-size: 30px;
+
+}
+
 
 @keyframes App-logo-spin {
     from {

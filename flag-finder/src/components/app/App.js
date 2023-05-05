@@ -22,9 +22,14 @@ function App() {
     return (
         <ChakraProvider>
             <div className="App">
+                <header className="header">
+                    <b>Where in the world?</b>
+                </header>
+                
                 <header className="App-header">
-                    <p>Where in the world am I?</p>
-                    <SearchBar />
+                    <div className="search">
+                        <SearchBar />
+                    </div>
                     {data && <CardList data={data} />}
                 </header>
             </div>

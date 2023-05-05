@@ -23,11 +23,11 @@ export default function CountryCard(props) {
                 />
                 <Stack mt="6" spacing="3">
                     <Heading size="md">{props.data.name.common}</Heading>
-                    <Text fontSize={15}>
-                        Population: {props.data.population}
+                    <Text fontSize={12}>
+                        <b>Population: </b>{props.data.population}
                     </Text>
-                    <Text fontSize={15}>Region: {props.data.region}</Text>
-                    <Text fontSize={15}>Capital: {props.data.capital}</Text>
+                    <Text fontSize={12}> <b>Region: </b>{props.data.region}</Text>
+                    <Text fontSize={12}><b>Capital: </b>{props.data.capital}</Text>
                 </Stack>
             </CardBody>
         </Card>
