@@ -14,7 +14,8 @@ import {
 
 
 export default function CountryCard(props) {
-   return ( <Card maxW='sm'>
+   // add key function here
+   return ( <Card maxW='sm'> 
    <CardBody>
      <Image
        //src= {props.url}
@@ -24,7 +25,7 @@ export default function CountryCard(props) {
      <Stack mt='6' spacing='3'>
        <Heading size='md'>Living room Sofa</Heading>
        <Text>
-         {props.data};
+         {props.data.capital};
        </Text>
        <Text color='blue.600' fontSize='2xl'>
          $450

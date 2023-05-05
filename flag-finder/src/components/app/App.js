@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
-    const [data, setData] = useState("Hello");
+    const [data, setData] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
@@ -12,8 +12,6 @@ function App() {
                 "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital"
             );
             const data = await response.json();
-            console.log(data);
-            console.log(data[202].capital)
             setData(data);
         }
         fetchData();
@@ -26,7 +24,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <p>Where in the world am I?</p>
-                <CardList data={data} />
+                {data && <CardList data={data} />}
             </header>
         </div>
         </ChakraProvider>

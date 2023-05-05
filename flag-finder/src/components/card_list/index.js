@@ -2,17 +2,9 @@ import CountryCard from "../card";
 import { SimpleGrid } from "@chakra-ui/react";
 
 export default function CardList({data}) {
-
-    if (typeof data !== 'Array') {
-        console.log(typeof data); // not sure??
-        return(<p>Failed!</p>); // or handle the error
-      } else {
         return (
             <SimpleGrid spacing={10} columns={4}>
-                console.log(data);
-               <div> {data.map(i => 
-               (<CountryCard data={i}/>
-               ))}; </div>
+               <div> {data.map((item) => <CountryCard data={item}/> )}; </div>
             </SimpleGrid>
         );
       }
@@ -28,4 +20,3 @@ export default function CardList({data}) {
         // setPopName(data[i].population);
         // setCapitalName(data[i].capital);
         // setRegionName(data[i].region);
-}
