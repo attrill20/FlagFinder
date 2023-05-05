@@ -6,36 +6,20 @@ import { ChakraProvider } from '@chakra-ui/react';
 function App() {
     const [data, setData] = useState("Hello");
 
-    const [countryName, setCountryName] = useState("");
-    const [flagName, setFlagName] = useState("");
-    const [popName, setPopName] = useState("");
-    const [capitalName, setCapitalName] = useState("");
-    const [regionName, setRegionName] = useState("");
-
     useEffect(() => {
         async function fetchData() {
             const response = await fetch(
                 "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital"
             );
             const data = await response.json();
-
-            data.map(generateCard);
-
             console.log(data);
             console.log(data[202].capital)
-            setData(data[202].capital);
+            setData(data);
         }
         fetchData();
     }, []);
 
-function generateCard(i) {
-    setCountryName(data[i].name.common);
-    // setFlagName(data[i]); // to be fixed!
-    setPopName(data[i].population);
-    setCapitalName(data[i].capital);
-    setRegionName(data[i].region);
 
-}
 
     return (
         <ChakraProvider>
