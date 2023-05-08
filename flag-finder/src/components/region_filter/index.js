@@ -2,7 +2,7 @@ import React from "react";
 import { Select } from "@chakra-ui/react";
 
 const RegionFilter = ({ onChange }) => {
-  const regions = ["Africa", "America", "Asia", "Europe", "Oceania"];
+  const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   return (
     <Select
