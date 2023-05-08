@@ -3,7 +3,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 
 export default function CardList({ data }) {
     return (
-        <SimpleGrid spacing={10} columns={4}>
+        <SimpleGrid spacing={20} columns={4}>
             {data.map((item) => (
                 <CountryCard data={item} />
             ))}

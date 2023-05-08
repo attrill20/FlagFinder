@@ -4,7 +4,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 export default function SearchBar({onChange}) {
     return (
         <Stack spacing={4}>
-            <InputGroup margin={20}>
+            <InputGroup width="300px" margin={20}>
             <InputLeftElement
                 pointerEvents='none'
                 children={<SearchIcon color='gray.300' />}

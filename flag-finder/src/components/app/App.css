@@ -1,17 +1,62 @@
-.search-bar {
+.app {
+  text-align: left;
+  background-color: whitesmoke;
+}
+
+.header {
+  background-color: white;
+  text-align: left;
+  font-size: 30px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.options {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 10px; /* add some margin to the bottom to separate it from the CardList */
+  background-color: whitesmoke;
+  padding-right: 100px;
+}
+
+.search-bar {
+  flex: 1;
+  margin-right: 10px;
+  width: 300px;
 }
 
 .search-bar input[type="text"] {
   text-align: left;
-  margin-right: 10px;
+  flex-shrink: 0;
+  width: 400px; /* or any desired width */
 }
 
-.app {
-  text-align: left;
+
+.region-filter {
+  flex: 0 0 200px; /* set a fixed width of 200px */
+  margin-left: 10px; /* add some margin between the search bar and filter */
+  background-color: white;
+
+}
+
+.region-filter-select {
+  width: 100%;
+  background-color: white;
+  
+}
+
+@media screen and (max-width: 768px) {
+  .options {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-bar {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .main-page {
@@ -20,16 +65,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: black;
-}
-
-.header {
-  background-color: white;
-  text-align: left;
-  font-size: 30px;
-  margin-left: 60px;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }

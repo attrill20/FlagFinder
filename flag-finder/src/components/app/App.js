@@ -1,12 +1,15 @@
 import "./App.css";
 import CardList from "../card_list";
 import SearchBar from "../search_bar";
+import RegionFilter from "../region_filter";
 import React, { useEffect, useState } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
     const [data, setData] = useState(null);
     const [filteredCountries, setFilteredCountries] = useState([]);
+    const [selectedRegion, setSelectedRegion] = useState(null);
+
 
     useEffect(() => {
         async function fetchData() {
@@ -26,32 +29,60 @@ function App() {
         setFilteredCountries(
           data.filter(
             (country) =>
+              (!selectedRegion || country.region === selectedRegion) &&
               country.name.common.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
           )
         );
       };
+      
+
+      const handleRegionFilterChange = (event) => {
+        const selectedRegion = event.target.value;
+        setSelectedRegion(selectedRegion);
+        setFilteredCountries(
+          data.filter(
+            (country) =>
+              (!selectedRegion || country.region === selectedRegion)
+          )
+        );
+      };
+      
+   
+      
 
     return (
         <ChakraProvider>
             <div className="app">
-                <header className="header">
-                    <b>Where in the world?</b>
-                </header>
 
-                <div className="search-bar">
+                    <header className="header header-text">
+                        <b>Where in the world?</b>
+                    </header>
+
+                <div className="options">
+                    <div className="search-bar">
                         <SearchBar onChange={handleSearchInputChange}/>
                     </div>
-                
-                <div className="main-page">
 
-                    {data && <CardList data={filteredCountries} />}
+                    <div className="region-filter">
+                        <RegionFilter onChange={handleRegionFilterChange} />
+                    </div>
                 </div>
+                
+                    <div className="main-page">
+                        {data && <CardList data={filteredCountries} />}
+                    </div>
+        
+
             </div>
         </ChakraProvider>
     );
 }
 
 export default App;
+
+
+
+
 
 /* 
 - Set up API fetch 
