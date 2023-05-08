@@ -7,13 +7,6 @@ export default function CardList({ data }) {
             {data.map((item) => (
                 <CountryCard data={item} />
             ))}
-            ;
         </SimpleGrid>
     );
 }
-
-// setCountryName(data[i].name.common);
-// // setFlagName(data[i]); // to be fixed!
-// setPopName(data[i].population);
-// setCapitalName(data[i].capital);
-// setRegionName(data[i].region);

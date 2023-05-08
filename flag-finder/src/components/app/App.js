@@ -6,6 +6,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
     const [data, setData] = useState(null);
+    const [filteredCountries, setFilteredCountries] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
@@ -15,23 +16,36 @@ function App() {
             const data = await response.json();
             console.log(data);
             setData(data);
+            setFilteredCountries(data);
         }
         fetchData();
     }, []);
 
+    const handleSearchInputChange = (event) => {
+        const searchInput = event.target.value;
+        setFilteredCountries(
+          data.filter(
+            (country) =>
+              country.name.common.toLowerCase().indexOf(searchInput.toLowerCase()) !== -1
+          )
+        );
+      };
+
     return (
         <ChakraProvider>
-            <div className="App">
+            <div className="app">
                 <header className="header">
                     <b>Where in the world?</b>
                 </header>
-                
-                <header className="App-header">
-                    <div className="search">
-                        <SearchBar />
+
+                <div className="search-bar">
+                        <SearchBar onChange={handleSearchInputChange}/>
                     </div>
-                    {data && <CardList data={data} />}
-                </header>
+                
+                <div className="main-page">
+
+                    {data && <CardList data={filteredCountries} />}
+                </div>
             </div>
         </ChakraProvider>
     );

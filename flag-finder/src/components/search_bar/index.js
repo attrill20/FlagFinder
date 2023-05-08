@@ -1,7 +1,7 @@
 import { Input, Stack, InputGroup, InputLeftElement,  } from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons';
 
-export default function SearchBar() {
+export default function SearchBar({onChange}) {
     return (
         <Stack spacing={4}>
             <InputGroup margin={20}>
@@ -13,6 +13,7 @@ export default function SearchBar() {
                     bg="white"
                     type="tel"
                     placeholder="Search for a country..."
+                    onChange={onChange}
                 />
             </InputGroup>
         </Stack>
